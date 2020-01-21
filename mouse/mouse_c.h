@@ -86,7 +86,6 @@ void calculateDeltas(CGEventRef *event, MMPointInt32 point){
 }
 #endif
 
-
 /**
  * Move the mouse to a specific point.
  * @param point The coordinates to move the mouse to (x, y).
@@ -126,6 +125,21 @@ void moveMouse(MMPointInt32 point){
 		mouseInput.mi.mouseData = 0;
 		SendInput(1, &mouseInput, sizeof(mouseInput));
 
+	#endif
+}
+
+void moveMouseRelative(MMPointInt32 point){
+	// todo: add other enviroments
+	#if defined(IS_WINDOWS)
+		INPUT mouseInput;
+		mouseInput.type = INPUT_MOUSE;
+		mouseInput.mi.dx = point.x;
+		mouseInput.mi.dy = point.y;
+		mouseInput.mi.dwFlags = MOUSEEVENTF_MOVE;
+		mouseInput.mi.time = 0;
+		mouseInput.mi.dwExtraInfo = 0;
+		mouseInput.mi.mouseData = 0;
+		SendInput(1, &mouseInput, sizeof(mouseInput));
 	#endif
 }
 

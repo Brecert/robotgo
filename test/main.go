@@ -28,6 +28,7 @@ func aRobotgo() {
 
 	robotgo.MoveMouse(x, y)
 	robotgo.MoveMouse(100, 200)
+	robotgo.MoveMouseRelative(0, -5)
 
 	robotgo.MouseToggle("up")
 

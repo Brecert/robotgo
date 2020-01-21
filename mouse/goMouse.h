@@ -45,6 +45,13 @@ int move_mouse(int32_t x, int32_t y){
 	return 0;
 }
 
+int move_mouse_relative(int32_t x, int32_t y){
+	MMPointInt32 point;
+	point = MMPointInt32Make(x, y);
+	moveMouseRelative(point);
+
+	return 0;
+}
 
 int drag_mouse(int32_t x, int32_t y, MMMouseButton button){
 	// const size_t x = 10;

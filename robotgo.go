@@ -357,6 +357,12 @@ func CheckMouse(btn string) C.MMMouseButton {
 	return C.LEFT_BUTTON
 }
 
+func MoveMouseRelative(x, y int) {
+	cx := C.int32_t(x)
+	cy := C.int32_t(y)
+	C.move_mouse_relative(cx, cy)
+}
+
 // MoveMouse move the mouse
 func MoveMouse(x, y int) {
 	// C.size_t  int
